@@ -1,0 +1,175 @@
+
+<div class="landing-shell" [class.theme-light]="!isDarkTheme">
+  <header class="site-header">
+    <a class="brand" routerLink="/" aria-label="Nexora home">
+      <span class="brand-icon" aria-hidden="true">ϟ</span>
+      <span>NEXORA</span>
+    </a>
+
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="#features">Features</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a href="#about">About</a>
+    </nav>
+
+    <div class="header-actions">
+      <button
+        class="theme-button"
+        type="button"
+        (click)="toggleTheme()"
+        [attr.aria-label]="isDarkTheme ? 'Switch to light theme' : 'Switch to dark theme'"
+        [title]="isDarkTheme ? 'Switch to light theme' : 'Switch to dark theme'"
+      >
+        {{ isDarkTheme ? '☼' : '☾' }}
+      </button>
+
+      <a class="sign-in-button" routerLink="/login">Sign In</a>
+      <a class="register-button" routerLink="/register">
+        Register <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-grid" aria-hidden="true"></div>
+
+      <div class="hero-content">
+        <div class="announcement">
+          <span aria-hidden="true">✧</span>
+          YOUR NEXT WORKSPACE
+        </div>
+
+        <h1>
+          Your business deserves
+          <br />
+          a <span class="gradient-text">smarter workspace.</span>
+        </h1>
+
+        <p class="hero-description">
+          Bring your work, people and ideas together in one place.
+          A connected workspace for the way modern businesses work.
+        </p>
+
+        <p class="hero-subdescription">
+          Organize your work. Find what matters. Move forward with confidence.
+        </p>
+
+        <div class="hero-actions">
+          <a class="primary-cta" routerLink="/register">
+            Get started free <span aria-hidden="true">→</span>
+          </a>
+
+          <a class="secondary-cta" href="#features">
+            Explore features
+          </a>
+        </div>
+
+        <p class="hero-footnote">
+          A workspace built around your business.
+        </p>
+      </div>
+
+      <div class="hero-glow glow-left" aria-hidden="true"></div>
+      <div class="hero-glow glow-right" aria-hidden="true"></div>
+    </section>
+
+    <section id="features" class="content-section">
+      <div class="section-heading">
+        <span class="section-eyebrow">WHAT YOU CAN DO</span>
+        <h2>Everything starts in one place.</h2>
+        <p>
+          A flexible foundation for the tools and workflows your business needs.
+        </p>
+      </div>
+
+      <div class="feature-grid">
+        <article class="feature-card">
+          <span class="feature-icon purple" aria-hidden="true">⌘</span>
+          <h3>Organize your work</h3>
+          <p>
+            Keep important information, daily work and resources accessible
+            from one workspace.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <span class="feature-icon blue" aria-hidden="true">◈</span>
+          <h3>Understand your progress</h3>
+          <p>
+            Build a clearer view of the activities and information that matter
+            to your business.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <span class="feature-icon orange" aria-hidden="true">↗</span>
+          <h3>Work with confidence</h3>
+          <p>
+            Give team members access to the right parts of your workspace
+            through role-based permissions.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="pricing" class="information-section">
+      <span class="section-eyebrow">PRICING</span>
+      <h2>A plan that fits your business.</h2>
+      <p>
+        Pricing and plans will be announced once the product direction is finalized.
+      </p>
+      <a class="text-link" routerLink="/register">
+        Create an account <span aria-hidden="true">→</span>
+      </a>
+    </section>
+
+    <section id="faq" class="information-section">
+      <span class="section-eyebrow">FAQ</span>
+      <h2>Questions? We're just getting started.</h2>
+
+      <details>
+        <summary>What is Nexora Workspace?</summary>
+        <p>
+          Nexora is a workspace concept that will bring useful business tools
+          together. Its final features are still being planned.
+        </p>
+      </details>
+
+      <details>
+        <summary>Can I create an account?</summary>
+        <p>
+          Yes. Use the Register link to open the existing registration page.
+        </p>
+      </details>
+
+      <details>
+        <summary>Will more features be added?</summary>
+        <p>
+          Yes. The modules will be decided as the product direction becomes clear.
+        </p>
+      </details>
+    </section>
+
+    <section id="about" class="about-section">
+      <div class="about-mark" aria-hidden="true">N</div>
+      <div>
+        <span class="section-eyebrow">ABOUT NEXORA</span>
+        <h2>A workspace with room to grow.</h2>
+        <p>
+          We're creating the foundation for a more connected business experience.
+          The details will evolve as we define the product.
+        </p>
+      </div>
+      <a class="primary-cta" routerLink="/register">
+        Get started <span aria-hidden="true">→</span>
+      </a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="footer-brand" routerLink="/">NEXORA WORKSPACE</a>
+    <span>© {{ currentYear }} Nexora. All rights reserved.</span>
+  </footer>
+</div>

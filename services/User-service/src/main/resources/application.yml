@@ -1,0 +1,51 @@
+server:
+  port: 8081
+  servlet:
+    session:
+      timeout: 30m
+      cookie:
+        name: JSESSIONID
+        http-only: true
+        secure: false
+        path: /
+        same-site: lax
+
+spring:
+
+  application:
+    name: user-service
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/dashboard_dev?currentSchema=app
+    username: dashboard_dev_app
+    password: Dev@Dash2026#Secure
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate:
+        default_schema: app
+
+  flyway:
+    enabled: true
+    default-schema: app
+    schemas: app
+    baseline-on-migrate: true
+    baseline-version: 1
+
+management:
+
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+security:
+  jwt:
+    secret: ${JWT_SECRET}
+    issuer: dashboard-user-service
+    access-token-minutes: 15
+    refresh-token-days: 7
