@@ -1,0 +1,86 @@
+<div class="auth-shell">
+  <aside class="brand-panel">
+    <a class="brand" routerLink="/login">
+      <span class="brand-icon">N</span>
+      <span>NEXORA<span class="brand-dot">.</span></span>
+    </a>
+
+    <div class="hero-copy">
+      <span class="eyebrow"><span class="pulse"></span> WELCOME BACK</span>
+      <h1>Your work.<br>Your vision.<br><span>In sync.</span></h1>
+      <p>Pick up where you left off. Your workspace is ready when you are.</p>
+
+      <div class="quote-card">
+        <span class="quote-mark">“</span>
+        <p>Great work happens when everything just clicks.</p>
+        <div class="quote-line"><span></span> THE NEXORA WAY</div>
+      </div>
+    </div>
+
+    <div class="brand-footer">© 2026 Nexora Workspace <span>Thoughtfully built for better work.</span></div>
+    <div class="orb orb-one"></div>
+    <div class="orb orb-two"></div>
+  </aside>
+
+  <main class="form-panel">
+    <div class="mobile-brand">
+      <span class="brand-icon">N</span> NEXORA<span class="brand-dot">.</span>
+    </div>
+
+    <div class="form-wrap login-wrap">
+      <div class="form-topline">NEW TO NEXORA? <a routerLink="/register">Create account</a></div>
+
+      <div class="form-heading">
+        <div class="mini-label">YOUR WORKSPACE AWAITS</div>
+        <h2>Welcome back<span>.</span></h2>
+        <p>Enter your credentials to access your account.</p>
+      </div>
+
+      <div class="success-banner" *ngIf="registered">
+        <span>✓</span> Account created successfully. You can sign in now.
+      </div>
+
+      <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+        <label for="username">Username</label>
+        <div class="input-wrap">
+          <span class="input-icon">♙</span>
+          <input id="username" formControlName="username" placeholder="Enter your username" autocomplete="username">
+        </div>
+        <small class="field-error" *ngIf="f.username.touched && f.username.invalid">
+          Username is required.
+        </small>
+
+        <div class="password-label">
+          <label for="password">Password</label>
+        </div>
+        <div class="input-wrap">
+          <span class="input-icon">♙</span>
+          <input id="password" [type]="showPassword ? 'text' : 'password'" formControlName="password"
+            placeholder="Enter your password" autocomplete="current-password">
+          <button type="button" class="reveal" (click)="showPassword = !showPassword">
+            {{ showPassword ? 'Hide' : 'Show' }}
+          </button>
+        </div>
+        <small class="field-error" *ngIf="f.password.touched && f.password.invalid">
+          Password is required.
+        </small>
+
+        <div class="form-error" *ngIf="error">{{ error }}</div>
+        <div class="remember-me">
+          <label>
+            <input type="checkbox" formControlName="rememberMe" />
+            Remember me
+          </label>
+        </div>
+        <button class="primary-btn" type="submit" [disabled]="loading">
+          <span>{{ loading ? 'Signing in...' : 'Sign in to your account' }}</span>
+          <span *ngIf="!loading">↗</span>
+          <span *ngIf="loading" class="spinner"></span>
+        </button>
+      </form>
+
+      <p class="terms">Having trouble signing in? Contact your workspace administrator.</p>
+      <div class="secure-note"><span>◇</span> Secure access to your workspace.</div>
+    </div>
+  </main>
+</div>
